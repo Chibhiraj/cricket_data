@@ -1,0 +1,123 @@
+[
+    {
+        "name": "Sachin Tendulkar",
+        "matches": 10,
+        "average": 5.5,
+        "team": "India"
+    },
+    {
+        "name": "Virat Kohli",
+        "matches": 20,
+        "average": 11.0,
+        "team": "India"
+    },
+    {
+        "name": "MS Dhoni",
+        "matches": 30,
+        "average": 16.5,
+        "team": "India"
+    },
+    {
+        "name": "Rohit Sharma",
+        "matches": 40,
+        "average": 22.0,
+        "team": "India"
+    },
+    {
+        "name": "Anil Kumble",
+        "matches": 50,
+        "average": 27.5,
+        "team": "India"
+    },
+    {
+        "name": "Sourav Ganguly",
+        "matches": 60,
+        "average": 33.0,
+        "team": "India"
+    },
+    {
+        "name": "Rahul Dravid",
+        "matches": 70,
+        "average": 38.5,
+        "team": "India"
+    },
+    {
+        "name": "Kapil Dev",
+        "matches": 80,
+        "average": 44.0,
+        "team": "India"
+    },
+    {
+        "name": "Sunil Gavaskar",
+        "matches": 90,
+        "average": 49.5,
+        "team": "India"
+    },
+    {
+        "name": "Virender Sehwag",
+        "matches": 100,
+        "average": 55.0,
+        "team": "India"
+    },
+    {
+        "name": "Yuvraj Singh",
+        "matches": 110,
+        "average": 60.5,
+        "team": "India"
+    },
+    {
+        "name": "Harbhajan Singh",
+        "matches": 120,
+        "average": 66.0,
+        "team": "India"
+    },
+    {
+        "name": "Zaheer Khan",
+        "matches": 130,
+        "average": 71.5,
+        "team": "India"
+    },
+    {
+        "name": "Mohammad Azharuddin",
+        "matches": 140,
+        "average": 77.0,
+        "team": "India"
+    },
+    {
+        "name": "Javagal Srinath",
+        "matches": 150,
+        "average": 82.5,
+        "team": "India"
+    },
+    {
+        "name": "Gautam Gambhir",
+        "matches": 160,
+        "average": 88.0,
+        "team": "India"
+    },
+    {
+        "name": "Ajinkya Rahane",
+        "matches": 170,
+        "average": 93.5,
+        "team": "India"
+    },
+    {
+        "name": "Ravichandran Ashwin",
+        "matches": 180,
+        "average": 99.0,
+        "team": "India"
+    },
+    {
+        "name": "Ishant Sharma",
+        "matches": 190,
+        "average": 4.5,
+        "team": "India"
+    },
+    {
+        "name": "Bhuvneshwar Kumar",
+        "matches": 200,
+        "average": 10.0,
+        "team": "India"
+    }
+]
+

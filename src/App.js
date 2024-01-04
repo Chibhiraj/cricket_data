@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React, { useState } from 'react';
+import CricketTable from './cricket_table';
+import cricketData from './cricketer_data.json';
+
+const App = () => {
+  const [players, setPlayers] = useState(cricketData);
+
+  const handleDelete = (index) => {
+    const updatedPlayers = [...players];
+    updatedPlayers.splice(index, 1);
+    setPlayers(updatedPlayers);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <center>
+      <h1>Cricket Players Data</h1>
+      <CricketTable data={players} onDelete={handleDelete} />
+      </center>
     </div>
   );
-}
+};
 
 export default App;
