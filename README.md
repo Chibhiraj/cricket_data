@@ -1,4 +1,4 @@
-***Cricket Data Table***
+  ***Cricket Data Table***
 
 Demo : https://cricket-data.vercel.app/
 
@@ -31,6 +31,10 @@ Execute npm start to run the application locally.
 
 **Sample screenshots:**
 ![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/13780fbc-c679-455e-8ea9-08a24317091d)
+
+After deleting virat kholi:
+![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/544a629f-f2b1-454e-8efe-1d55f69c9adb)
+
 
 Sort by name:
 ![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/bd945326-9b9f-4004-ba09-f86c974baa0d)
