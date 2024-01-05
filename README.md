@@ -36,8 +36,13 @@ After deleting virat kholi:
 ![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/544a629f-f2b1-454e-8efe-1d55f69c9adb)
 
 
-Sort by name:
-![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/bd945326-9b9f-4004-ba09-f86c974baa0d)
+Sort by name (Ascending):
+![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/4b7043d5-fd08-426a-8e25-674e11988e6b)
+
+
+Sort by matches (Descending): 
+![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/f8abeb24-549c-41c3-bc01-78e69cc54f81)
+
 
 Searching:
 ![image](https://github.com/Chibhiraj/cricket_data/assets/77978640/8e8ce673-1e90-49b2-87e3-bbd5cdbb4b9e)
