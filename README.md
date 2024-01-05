@@ -1,6 +1,6 @@
   ***Cricket Data Table***
 
-Demo : https://cricket-data.vercel.app/
+Demo (Click the link for live demo) : https://cricket-data.vercel.app/
 
 **Description**
 
