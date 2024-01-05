@@ -4,7 +4,7 @@ Demo : https://cricket-data.vercel.app/
 
 **Description**
 
-This React application features a dynamic and responsive data table for displaying cricket player information. 
+This React application features a dynamic and responsive data table for displaying cricket player information like name, matches ,average, team. 
 
 **The table provides the following functionalities:**
 
@@ -20,7 +20,6 @@ Pagination: Each page can be viewed by 5/10/15/20 records.
 React
 Material-UI
 MUI Select, TextField, and Button components
-Virtuoso for efficient virtualization of large datasets
 
 **Usage:**
 
