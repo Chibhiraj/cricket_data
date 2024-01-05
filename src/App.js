@@ -15,8 +15,8 @@ const App = () => {
   return (
     <div>
     <center>
-      <h1>Cricket Players Data</h1>
-      <CricketTable data={players} onDelete={handleDelete} />
+      <h1 style={{font: 'tektur'}}>Cricket Players Statistics</h1>
+      <CricketTable data={players} onDelete={handleDelete}  />
       </center>
     </div>
   );

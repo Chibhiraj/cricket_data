@@ -1,0 +1,11 @@
+body {
+    font-family: 'Open Sans';
+    background-image: url(https://img.freepik.com/free-vector/gradient-background-vector-spring-light-pink-green_53876-105763.jpg?size=626&ext=jpg&uid=R61859416&ga=GA1.1.620296869.1692855687&semt=ais);
+    background-size: cover;
+    
+  }
+  @media (max-width: 600px) {
+    .sorting-options {
+      width: 100%;
+    }
+  }

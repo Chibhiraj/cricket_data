@@ -1,3 +1,5 @@
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import React, { useState } from 'react';
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -13,10 +15,15 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import './styles.css';
+import TablePagination from "@mui/material/TablePagination";
+
 
 const CricketTable = ({ data, onDelete }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -30,7 +37,15 @@ const CricketTable = ({ data, onDelete }) => {
     setSortConfig({ key, direction });
   };
 
-//Function for sorting is implemented here.
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   const sortedData = () => {
     const sortableData = [...data];
     if (sortConfig.key !== null) {
@@ -47,7 +62,6 @@ const CricketTable = ({ data, onDelete }) => {
     return sortableData;
   };
 
-//Search function starts here.
   const filteredData = () => {
     return sortedData().filter(
       (player) =>
@@ -55,11 +69,22 @@ const CricketTable = ({ data, onDelete }) => {
     );
   };
 
+  const clearSearch = () => {
+    setSearchTerm('');
+  };
 
-//Returning the required table.
+  const SortingIcon = ({ sortKey }) => {
+    if (!sortConfig.key || sortConfig.key !== sortKey) {
+      return null;
+    }
+
+    return sortConfig.direction === 'asc' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />;
+  };
+
   return (
     <div>
-      <Container >
+      <Container>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <TextField
           margin='dense'
           type="text"
@@ -67,11 +92,17 @@ const CricketTable = ({ data, onDelete }) => {
           value={searchTerm}
           variant="standard"
           onChange={handleSearch}
-          
         />
 
-        <FormControl variant="standard" sx={{ marginLeft: 100 }}>
-          <InputLabel>Sort By</InputLabel>
+          {searchTerm && (
+            <Button variant="standard" onClick={clearSearch} sx={{color:'red'}}>
+              Clear Search
+            </Button>
+          )}
+
+
+        <FormControl variant="standard" >
+          <InputLabel sx>Sort By</InputLabel>
           <Select
             value={sortConfig.key || 'none'}
             onChange={(e) => requestSort(e.target.value)}
@@ -82,59 +113,73 @@ const CricketTable = ({ data, onDelete }) => {
             <MenuItem value="average">Average</MenuItem>
           </Select>
         </FormControl>
+    </div>
 
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 65 }} aria-label="simple table">
-            <TableHead style={{ background: 'linear-gradient(to right,#4ecdc4, #556270)' }}>
-              <TableRow>
+          <Table sx={{ minWidth: 65 ,fontfamily: 'Open Sans'}} aria-label="simple table">
+            <TableHead style={{ background: '#211f2f' }}>
+            <TableRow sx={{color:'white'}}>
                 <SortableHeader
                   label="Name"
                   sortKey="name"
                   requestSort={requestSort}
                   sortConfig={sortConfig}
-                  
+                  SortingIcon={<SortingIcon sortKey="name" />}
                 />
                 <SortableHeader
                   label="Matches"
                   sortKey="matches"
                   requestSort={requestSort}
                   sortConfig={sortConfig}
+                  SortingIcon={<SortingIcon sortKey="matches" />}
                 />
                 <SortableHeader
                   label="Average"
                   sortKey="average"
                   requestSort={requestSort}
                   sortConfig={sortConfig}
+                  SortingIcon={<SortingIcon sortKey="average" />}
                 />
-                <TableCell>Team</TableCell>
-                <TableCell>Action</TableCell>
+                <TableCell sx={{color:'white'}}>Team</TableCell>
+                <TableCell sx={{color:'white'}}>Action</TableCell>
               </TableRow>
             </TableHead>
 
             <TableBody>
-              {filteredData().map((player, index) => (
-                <TableRow key={index}>
-                  <TableCell>{player.name}</TableCell>
-                  <TableCell>{player.matches}</TableCell>
-                  <TableCell>{player.average}</TableCell>
-                  <TableCell>{player.team}</TableCell>
-                  <TableCell>
-                    <Button onClick={() => onDelete(data.indexOf(player))}>Delete</Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {filteredData()
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((player, index) => (
+                  <TableRow key={index} sx={{ backgroundColor: index % 2 === 0 ? '#ffffff' : '#ffefc1' ,color:'red'}}>
+                    <TableCell>{player.name}</TableCell>
+                    <TableCell>{player.matches}</TableCell>
+                    <TableCell>{player.average}</TableCell>
+                    <TableCell>{player.team}</TableCell>
+                    <TableCell>
+                      <Button onClick={() => onDelete(data.indexOf(player))} sx={{color:"Red"}}>Delete</Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </TableContainer>
+
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 16,color:'white' }}>
+        <TablePagination
+          rowsPerPageOptions={[5,10,15,20]}
+          component="div"
+          count={filteredData().length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+        </div>
       </Container>
     </div>
   );
 };
 
-
-
-//The header sorting is implemented from here
-const SortableHeader = ({ label, sortKey, requestSort, sortConfig }) => {
+const SortableHeader = ({ label, sortKey, requestSort, sortConfig, SortingIcon }) => {
   const getClassNamesFor = (name) => {
     if (!sortConfig.key) {
       return;
@@ -144,7 +189,10 @@ const SortableHeader = ({ label, sortKey, requestSort, sortConfig }) => {
 
   return (
     <TableCell onClick={() => requestSort(sortKey)} className={getClassNamesFor(sortKey)}>
-      {label}
+       <div style={{ display: 'flex', alignItems: 'right' ,color:'white'}}>
+        {label}
+        {SortingIcon}
+      </div>
     </TableCell>
   );
 };
