@@ -1,9 +1,12 @@
 body {
-    /* font: ; */
-    background-image: url(./background/bg.jpg);
-    background-size:cover;
-    
-  }
+  /* Other styles */
+
+  background-image: url(./background/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
   @media (max-width: 600px) {
     .sorting-options {
       width: 100%;
